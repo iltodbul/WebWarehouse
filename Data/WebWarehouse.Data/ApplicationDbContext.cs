@@ -1,4 +1,6 @@
-﻿namespace WebWarehouse.Data
+﻿using WebWarehouse.Data.Models.Enums;
+
+namespace WebWarehouse.Data
 {
     using System;
     using System.Linq;
@@ -25,6 +27,19 @@
         }
 
         public DbSet<Setting> Settings { get; set; }
+
+        public DbSet<City> Cities { get; set; }
+
+        public DbSet<Country> Countries { get; set; }
+
+        public DbSet<Company> Companies { get; set; }
+
+        public DbSet<Partner> Partners { get; set; }
+
+        public DbSet<Store> Stores { get; set; }
+
+
+
 
         public override int SaveChanges() => this.SaveChanges(true);
 

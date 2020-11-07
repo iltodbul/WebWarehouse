@@ -1,4 +1,7 @@
 ﻿// ReSharper disable VirtualMemberCallInConstructor
+
+using System.ComponentModel.DataAnnotations;
+
 namespace WebWarehouse.Data.Models
 {
     using System;
@@ -33,5 +36,22 @@ namespace WebWarehouse.Data.Models
         public virtual ICollection<IdentityUserClaim<string>> Claims { get; set; }
 
         public virtual ICollection<IdentityUserLogin<string>> Logins { get; set; }
+
+        // Added for me
+        [Required]
+        public string FullName { get; set; }
+
+        [Required]
+        public string Address { get; set; }
+
+        [Required]
+        public string CountryId { get; set; }
+
+        public virtual Country Country { get; set; }
+
+        [Required]
+        public string CityId { get; set; }
+
+        public virtual City City { get; set; }
     }
 }
