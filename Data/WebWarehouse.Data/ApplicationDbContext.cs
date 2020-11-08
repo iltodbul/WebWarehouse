@@ -1,6 +1,4 @@
-﻿using WebWarehouse.Data.Models.Enums;
-
-namespace WebWarehouse.Data
+﻿namespace WebWarehouse.Data
 {
     using System;
     using System.Linq;
@@ -36,7 +34,18 @@ namespace WebWarehouse.Data
 
         public DbSet<Partner> Partners { get; set; }
 
-        public DbSet<Store> Stores { get; set; }
+        public DbSet<Warehouse> Warehouses { get; set; }
+
+        public DbSet<Measure> Measures { get; set; }
+
+        public DbSet<Good> Goods { get; set; }
+
+        public DbSet<Sale> Sales { get; set; }
+
+        public DbSet<Delivery> Deliveries { get; set; }
+
+        public DbSet<Transfer> Transfers { get; set; }
+
 
 
 
