@@ -45,10 +45,6 @@
 
         public DbSet<Transfer> Transfers { get; set; }
 
-
-
-
-
         public override int SaveChanges() => this.SaveChanges(true);
 
         public override int SaveChanges(bool acceptAllChangesOnSuccess)
@@ -95,6 +91,8 @@
             {
                 foreignKey.DeleteBehavior = DeleteBehavior.Restrict;
             }
+
+
         }
 
         private static void SetIsDeletedQueryFilter<T>(ModelBuilder builder)

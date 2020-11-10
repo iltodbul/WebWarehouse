@@ -1,19 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-
-namespace WebWarehouse.Data.Models
+﻿namespace WebWarehouse.Data.Models
 {
+    using System.ComponentModel.DataAnnotations;
+
     public class City
     {
-        public City()
-        {
-            
-        }
-
         public int Id { get; set; }
 
+        [Required]
+        [MinLength(3)]
+        [MaxLength(30)]
         public string Name { get; set; }
     }
 }

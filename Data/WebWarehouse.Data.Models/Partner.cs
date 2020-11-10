@@ -19,6 +19,7 @@
         [Required]
         public string ManagerFullName { get; set; }
 
+        [Range(9, 9)]
         public int EIK { get; set; }
 
         public string VatNumber { get; set; }
@@ -38,12 +39,14 @@
 
         public string Logo { get; set; }
 
+        [Required]
         public bool IsClient { get; set; }
 
+        [Required]
         public bool IsProvider { get; set; }
 
-        public ICollection<Delivery> Deliveries { get; set; } = new HashSet<Delivery>();
+        public virtual ICollection<Delivery> Deliveries { get; set; } = new HashSet<Delivery>();
 
-        public ICollection<Sale> Sales { get; set; } = new HashSet<Sale>();
+        public virtual ICollection<Sale> Sales { get; set; } = new HashSet<Sale>();
     }
 }

@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace WebWarehouse.Data.Models
+﻿namespace WebWarehouse.Data.Models
 {
+    using System.ComponentModel.DataAnnotations;
+
     public class Country
     {
-        public Country()
-        {
-        }
-
         public int Id { get; set; }
 
+        [Required]
+        [MinLength(3)]
+        [MaxLength(50)]
         public string Name { get; set; }
     }
 }

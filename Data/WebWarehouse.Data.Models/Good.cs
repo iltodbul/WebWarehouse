@@ -1,26 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace WebWarehouse.Data.Models
+﻿namespace WebWarehouse.Data.Models
 {
+    using System.ComponentModel.DataAnnotations;
+
     public class Good
     {
-        public Good()
-        {
-        }
-
         public int Id { get; set; }
 
         public string SKU { get; set; }
 
         public string Barcode { get; set; }
 
+        [Required]
         public string Name { get; set; }
 
+        [Required]
         public int MeasureId { get; set; }
 
-        public Measure Measure { get; set; }
+        public virtual Measure Measure { get; set; }
 
         public double Quantity { get; set; }
 

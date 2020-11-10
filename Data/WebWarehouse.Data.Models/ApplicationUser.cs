@@ -54,10 +54,10 @@ namespace WebWarehouse.Data.Models
 
         public virtual City City { get; set; }
 
-        public ICollection<Delivery> Deliveries { get; set; } = new HashSet<Delivery>();
+        public virtual ICollection<Delivery> Deliveries { get; set; } = new HashSet<Delivery>();
 
-        public ICollection<Sale> Sales { get; set; } = new HashSet<Sale>();
+        public virtual ICollection<Sale> Sales { get; set; } = new HashSet<Sale>();
 
-        public ICollection<Transfer> Transfers { get; set; } = new HashSet<Transfer>();
+        public virtual ICollection<Transfer> Transfers { get; set; } = new HashSet<Transfer>();
     }
 }

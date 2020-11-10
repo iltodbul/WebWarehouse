@@ -1,32 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
-
-namespace WebWarehouse.Data.Models
+﻿namespace WebWarehouse.Data.Models
 {
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public class Transfer
     {
         public int Id { get; set; }
 
+        [Range(1, int.MaxValue)]
         public int Number { get; set; }
 
         public DateTime Date { get; set; }
 
+        [ForeignKey(nameof(OutWarehouse))]
         public string OutWarehouseId { get; set; }
+        public Warehouse OutWarehouse { get; set; }
 
-        //[ForeignKey(nameof(Warehouse))]
-        //public Warehouse OutWarehouse { get; set; }
-
-        //public string InWarehouseId { get; set; }
-
-        //[ForeignKey(nameof(Warehouse))]
-        //public Warehouse InWarehouse { get; set; }
+        [ForeignKey(nameof(InWarehouse))]
+        public string InWarehouseId { get; set; }
+        public Warehouse InWarehouse { get; set; }
 
         public string UserId { get; set; }
 
-        public ApplicationUser User { get; set; }
+        public  ApplicationUser User { get; set; }
 
-        public ICollection<Good> TransferGoods { get; set; } = new HashSet<Good>();
+        public virtual ICollection<Good> TransferGoods { get; set; } = new HashSet<Good>();
     }
 }

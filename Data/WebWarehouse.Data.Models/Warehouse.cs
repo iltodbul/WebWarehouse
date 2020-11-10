@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
-
-namespace WebWarehouse.Data.Models
+﻿namespace WebWarehouse.Data.Models
 {
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public class Warehouse
     {
         public Warehouse()
@@ -35,16 +35,20 @@ namespace WebWarehouse.Data.Models
 
         public virtual Company Company { get; set; }
 
-        public ICollection<ApplicationUser> Users { get; set; } = new HashSet<ApplicationUser>();
+        public virtual ICollection<ApplicationUser> Users { get; set; } = new HashSet<ApplicationUser>();
 
-        public ICollection<Partner> Partners { get; set; } = new HashSet<Partner>();
+        public virtual ICollection<Partner> Partners { get; set; } = new HashSet<Partner>();
 
-        public ICollection<Good> Goods { get; set; } = new HashSet<Good>();
+        public virtual ICollection<Good> Goods { get; set; } = new HashSet<Good>();
 
-        public ICollection<Sale> Sales { get; set; } = new HashSet<Sale>();
+        public virtual ICollection<Sale> Sales { get; set; } = new HashSet<Sale>();
 
-        public ICollection<Delivery> Deliveries { get; set; } = new HashSet<Delivery>();
+        public virtual ICollection<Delivery> Deliveries { get; set; } = new HashSet<Delivery>();
 
-        public ICollection<Transfer> Transfers { get; set; } = new HashSet<Transfer>();
+        [InverseProperty(nameof(Transfer.InWarehouse))]
+        public virtual ICollection<Transfer> InTransfers { get; set; } = new HashSet<Transfer>();
+
+        [InverseProperty(nameof(Transfer.OutWarehouse))]
+        public virtual ICollection<Transfer> OutTransfers { get; set; } = new HashSet<Transfer>();
     }
 }
