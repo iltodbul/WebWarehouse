@@ -14,6 +14,8 @@ namespace WebWarehouse.Data.Models
 
         public string SKU { get; set; }
 
+        public string Barcode { get; set; }
+
         public string Name { get; set; }
 
         public int MeasureId { get; set; }

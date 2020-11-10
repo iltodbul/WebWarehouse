@@ -53,5 +53,11 @@ namespace WebWarehouse.Data.Models
         public string CityId { get; set; }
 
         public virtual City City { get; set; }
+
+        public ICollection<Delivery> Deliveries { get; set; } = new HashSet<Delivery>();
+
+        public ICollection<Sale> Sales { get; set; } = new HashSet<Sale>();
+
+        public ICollection<Transfer> Transfers { get; set; } = new HashSet<Transfer>();
     }
 }

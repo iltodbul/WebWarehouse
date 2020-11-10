@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
-
-namespace WebWarehouse.Data.Models
+﻿namespace WebWarehouse.Data.Models
 {
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+
     public class Partner
     {
         public Partner()
@@ -42,5 +41,9 @@ namespace WebWarehouse.Data.Models
         public bool IsClient { get; set; }
 
         public bool IsProvider { get; set; }
+
+        public ICollection<Delivery> Deliveries { get; set; } = new HashSet<Delivery>();
+
+        public ICollection<Sale> Sales { get; set; } = new HashSet<Sale>();
     }
 }

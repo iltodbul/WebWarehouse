@@ -7,7 +7,12 @@ namespace WebWarehouse.Data.Models
 {
     public class Warehouse
     {
-        public int Id { get; set; }
+        public Warehouse()
+        {
+            this.Id = Guid.NewGuid().ToString();
+        }
+
+        public string Id { get; set; }
 
         [Required]
         public string Name { get; set; }
@@ -30,12 +35,16 @@ namespace WebWarehouse.Data.Models
 
         public virtual Company Company { get; set; }
 
-        public ICollection<Good> Goods { get; set; }
+        public ICollection<ApplicationUser> Users { get; set; } = new HashSet<ApplicationUser>();
 
-        public ICollection<Sale> Sales { get; set; }
+        public ICollection<Partner> Partners { get; set; } = new HashSet<Partner>();
 
-        public ICollection<Delivery> Deliveries { get; set; }
+        public ICollection<Good> Goods { get; set; } = new HashSet<Good>();
 
-        public ICollection<Transfer> Transfers { get; set; }
+        public ICollection<Sale> Sales { get; set; } = new HashSet<Sale>();
+
+        public ICollection<Delivery> Deliveries { get; set; } = new HashSet<Delivery>();
+
+        public ICollection<Transfer> Transfers { get; set; } = new HashSet<Transfer>();
     }
 }
