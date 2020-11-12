@@ -6,11 +6,10 @@
     using System.Threading;
     using System.Threading.Tasks;
 
-    using WebWarehouse.Data.Common.Models;
-    using WebWarehouse.Data.Models;
-
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
+    using WebWarehouse.Data.Common.Models;
+    using WebWarehouse.Data.Models;
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, string>
     {
@@ -25,6 +24,26 @@
         }
 
         public DbSet<Setting> Settings { get; set; }
+
+        public DbSet<City> Cities { get; set; }
+
+        public DbSet<Company> Companies { get; set; }
+
+        public DbSet<Country> Countries { get; set; }
+
+        public DbSet<Delivery> Deliveries { get; set; }
+
+        public DbSet<Good> Goods { get; set; }
+
+        public DbSet<Measure> Measures { get; set; }
+
+        public DbSet<Partner> Partners { get; set; }
+
+        public DbSet<Sale> Sales { get; set; }
+
+        public DbSet<Transfer> Transfers { get; set; }
+
+        public DbSet<Warehouse> Warehouses { get; set; }
 
         public override int SaveChanges() => this.SaveChanges(true);
 

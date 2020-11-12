@@ -1,4 +1,8 @@
-﻿namespace WebWarehouse.Web.Controllers
+﻿using System.Linq;
+using WebWarehouse.Data;
+using WebWarehouse.Web.ViewModels.Home;
+
+namespace WebWarehouse.Web.Controllers
 {
     using System.Diagnostics;
 
@@ -8,9 +12,23 @@
 
     public class HomeController : BaseController
     {
+        private readonly ApplicationDbContext dbContext;
+
+        public HomeController(ApplicationDbContext dbContext)
+        {
+            this.dbContext = dbContext;
+        }
+
         public IActionResult Index()
         {
-            return this.View();
+            var viewModel = new IndexViewModel
+            {
+                CountriesCount = this.dbContext.Countries.Count(),
+                CitiesCount = this.dbContext.Cities.Count(),
+                SettingsCount = this.dbContext.Settings.Count(),
+            };
+
+            return this.View(viewModel);
         }
 
         public IActionResult Privacy()

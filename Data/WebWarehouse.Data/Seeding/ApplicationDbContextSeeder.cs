@@ -6,6 +6,7 @@
 
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Logging;
+    using WebWarehouse.Data.Seeding.CustomSeeding;
 
     public class ApplicationDbContextSeeder : ISeeder
     {
@@ -27,6 +28,8 @@
                           {
                               new RolesSeeder(),
                               new SettingsSeeder(),
+                              new CitiesSeeder(),
+                              new CountriesSeeder(),
                           };
 
             foreach (var seeder in seeders)
