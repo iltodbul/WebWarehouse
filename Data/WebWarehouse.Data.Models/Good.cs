@@ -1,6 +1,8 @@
 ﻿namespace WebWarehouse.Data.Models
 {
-    public class Good
+    using WebWarehouse.Data.Common.Models;
+
+    public class Good : BaseDeletableModel<int>
     {
         public int Id { get; set; }
 

@@ -1,6 +1,8 @@
 ﻿namespace WebWarehouse.Data.Models
 {
-    public class Measure
+    using WebWarehouse.Data.Common.Models;
+
+    public class Measure : BaseDeletableModel<int>
     {
         public int Id { get; set; }
 

@@ -2,7 +2,9 @@
 {
     using System.ComponentModel.DataAnnotations;
 
-    public class City
+    using WebWarehouse.Data.Common.Models;
+
+    public class City : BaseDeletableModel<int>
     {
         public int Id { get; set; }
 

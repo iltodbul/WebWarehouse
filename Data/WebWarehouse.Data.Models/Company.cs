@@ -3,7 +3,9 @@
     using System;
     using System.ComponentModel.DataAnnotations;
 
-    public class Company
+    using WebWarehouse.Data.Common.Models;
+
+    public class Company : BaseDeletableModel<string>
     {
         public Company()
         {

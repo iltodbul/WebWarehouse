@@ -2,7 +2,9 @@
 {
     using System.ComponentModel.DataAnnotations;
 
-    public class Country
+    using WebWarehouse.Data.Common.Models;
+
+    public class Country : BaseDeletableModel<int>
     {
         public int Id { get; set; }
 

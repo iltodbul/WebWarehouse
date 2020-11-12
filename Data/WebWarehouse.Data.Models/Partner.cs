@@ -4,7 +4,9 @@
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
-    public class Partner
+    using WebWarehouse.Data.Common.Models;
+
+    public class Partner : BaseDeletableModel<string>
     {
         public Partner()
         {

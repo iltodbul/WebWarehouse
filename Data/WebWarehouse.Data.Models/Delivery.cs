@@ -3,7 +3,9 @@
     using System;
     using System.Collections.Generic;
 
-    public class Delivery
+    using WebWarehouse.Data.Common.Models;
+
+    public class Delivery : BaseDeletableModel<int>
     {
         public int Id { get; set; }
 

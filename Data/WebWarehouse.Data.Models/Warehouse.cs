@@ -5,7 +5,9 @@
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    public class Warehouse
+    using WebWarehouse.Data.Common.Models;
+
+    public class Warehouse : BaseDeletableModel<string>
     {
         public Warehouse()
         {
