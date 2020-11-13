@@ -21,6 +21,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Data\WebWarehouse.Data.Common\WebWarehouse.Data.Common.csproj" />
     <ProjectReference Include="..\..\Data\WebWarehouse.Data.Models\WebWarehouse.Data.Models.csproj" />
+    <ProjectReference Include="..\..\Web\WebWarehouse.Web.ViewModels\WebWarehouse.Web.ViewModels.csproj" />
     <ProjectReference Include="..\WebWarehouse.Services.Mapping\WebWarehouse.Services.Mapping.csproj" />
   </ItemGroup>
 

@@ -1,32 +1,23 @@
-﻿using System.Linq;
-using WebWarehouse.Data;
-using WebWarehouse.Web.ViewModels.Home;
-
-namespace WebWarehouse.Web.Controllers
+﻿namespace WebWarehouse.Web.Controllers
 {
     using System.Diagnostics;
 
-    using WebWarehouse.Web.ViewModels;
-
     using Microsoft.AspNetCore.Mvc;
+    using WebWarehouse.Services.Data;
+    using WebWarehouse.Web.ViewModels;
 
     public class HomeController : BaseController
     {
-        private readonly ApplicationDbContext dbContext;
+        private readonly IGetCountsService countsService;
 
-        public HomeController(ApplicationDbContext dbContext)
+        public HomeController(IGetCountsService countsService)
         {
-            this.dbContext = dbContext;
+            this.countsService = countsService;
         }
 
         public IActionResult Index()
         {
-            var viewModel = new IndexViewModel
-            {
-                CountriesCount = this.dbContext.Countries.Count(),
-                CitiesCount = this.dbContext.Cities.Count(),
-                SettingsCount = this.dbContext.Settings.Count(),
-            };
+            var viewModel = this.countsService.GetCounts();
 
             return this.View(viewModel);
         }

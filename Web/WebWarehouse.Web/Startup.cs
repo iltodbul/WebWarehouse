@@ -1,4 +1,6 @@
-﻿namespace WebWarehouse.Web
+﻿using WebWarehouse.Services.Data.Goods;
+
+namespace WebWarehouse.Web
 {
     using System.Reflection;
 
@@ -64,6 +66,10 @@
             // Application services
             services.AddTransient<IEmailSender, NullMessageSender>();
             services.AddTransient<ISettingsService, SettingsService>();
+            services.AddTransient<IGetCountsService, GetCountsService>();
+
+            // Custom services
+            services.AddTransient<IGoodsService, GoodsService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

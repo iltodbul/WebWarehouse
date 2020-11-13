@@ -1,0 +1,105 @@
+﻿@model WebWarehouse.Web.ViewModels.Goods.GoodInputModel
+@{
+    ViewData["Title"] = "Add Goods";
+}
+
+<h1>@this.ViewData["Title"]</h1>
+
+<div class="col-lg-6">
+    <h2>New Good</h2>
+    <form method="post" enctype="multipart/form-data" class="pt-4">
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">SKU</label>
+            <div class="col-sm-10">
+                <input type="text" asp-for="@Model.SKU" class="form-control" required="required">
+                <span asp-validation-for="SKU" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Barcode</label>
+            <div class="col-sm-10">
+                <input type="text" asp-for="@Model.Barcode" class="form-control" required="required">
+                <span asp-validation-for="Barcode" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Name</label>
+            <div class="col-sm-10">
+                <input type="text" asp-for="@Model.Name" class="form-control" required="required">
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+        </div>
+
+        @*TODO dropdown*@
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Measure</label>
+            <div class="col-sm-10">
+                <input type="number" asp-for="@Model.MeasureId" class="form-control" required="required">
+                <span asp-validation-for="MeasureId" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Delivery Price</label>
+            <div class="col-sm-10">
+                <input type="number" asp-for="@Model.DeliveryPrice" class="form-control" required="required">
+                <span asp-validation-for="DeliveryPrice" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Sale Price</label>
+            <div class="col-sm-10">
+                <input type="number" asp-for="@Model.SalePrice" class="form-control" required="required">
+                <span asp-validation-for="SalePrice" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Quantity</label>
+            <div class="col-sm-10">
+                <input type="number" asp-for="@Model.Quantity" class="form-control" required="required">
+                <span asp-validation-for="Quantity" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Discount</label>
+            <div class="col-sm-10">
+                <input type="number" asp-for="@Model.Discount" class="form-control" required="required">
+                <span asp-validation-for="Discount" class="text-danger"></span>
+            </div>
+        </div>
+
+
+        @*Dis is dropdown example. For measure*@
+        @*</div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Category</label>
+            <div class="col-sm-10">
+                <select asp-for="@Model.CategoryId" class="form-control" asp-items="@categories">
+                </select>
+                <span asp-validation-for="CategoryId" class="text-danger"></span>
+            </div>
+        </div>*@
+
+
+        @*Dis is button example for add the good in the date base*@
+        @*<div class="form-group row">
+            <div class="col-sm-6 text-right">
+                <button type="submit" class="btn btn-success"
+                        asp-area="Administration" asp-controller="Services" asp-action="AddService">
+                    Add Service
+                </button>
+            </div>
+            <div class="col-sm-6">
+                <a class="btn btn-danger" asp-area="Administration" asp-controller="Services" asp-action="Index">Cancel</a>
+            </div>
+        </div>*@
+
+    </form>
+</div>
+
