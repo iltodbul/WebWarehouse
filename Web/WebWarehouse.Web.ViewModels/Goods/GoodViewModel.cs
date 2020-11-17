@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using WebWarehouse.Data.Models;
-
-namespace WebWarehouse.Web.ViewModels.Goods
+﻿namespace WebWarehouse.Web.ViewModels.Goods
 {
-    public class GoodViewModel
+
+    using AutoMapper;
+    using WebWarehouse.Data.Models;
+    using WebWarehouse.Services.Mapping;
+
+    public class GoodViewModel : IMapFrom<Good>, IHaveCustomMappings
     {
         public int Id { get; set; }
 
@@ -24,5 +24,14 @@ namespace WebWarehouse.Web.ViewModels.Goods
         public decimal SalePrice { get; set; }
 
         public double Discount { get; set; }
+
+        public string MeasureName { get; set; }
+
+        public void CreateMappings(IProfileExpression configuration)
+        {
+            configuration.CreateMap<Measure, GoodViewModel>().ForMember(
+                m => m.MeasureName,
+                opt => opt.MapFrom(x => x.Name));
+        }
     }
 }

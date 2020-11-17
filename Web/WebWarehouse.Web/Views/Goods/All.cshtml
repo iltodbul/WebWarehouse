@@ -1,7 +1,42 @@
-﻿
+﻿@using WebWarehouse.Common
+@model WebWarehouse.Web.ViewModels.Goods.GoodListViewModel
 @{
     ViewData["Title"] = "All";
 }
 
-<h1>All</h1>
+<h2>
+    All Goods: (@Model.Goods.Count())
+    <span>
+        <a class="btn btn-info" asp-controller="Goods" asp-action="Add">Add New Good</a>
+    </span>
+</h2>
 
+<table class="table table-bordered table-striped">
+    <thead class="thead-light">
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">SKU</th>
+            <th scope="col">Barcode</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Measure</th>
+            <th scope="col">Delivery Price</th>
+            <th scope="col">Sale Price</th>
+            <th scope="col">Discount</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var good in this.Model.Goods)
+        {
+            <tr>
+                <th scope="row">@good.Name</th>
+                <td>@good.SKU</td>
+                <td>@good.Barcode</td>
+                <td>@good.Quantity</td>
+                <td>@good.MeasureName</td>
+                <td>@good.DeliveryPrice</td>
+                <td>@good.SalePrice</td>
+                <td>@good.Discount</td>
+            </tr>
+        }
+    </tbody>
+</table>

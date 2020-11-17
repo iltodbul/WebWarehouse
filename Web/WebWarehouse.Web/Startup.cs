@@ -1,4 +1,5 @@
 ﻿using WebWarehouse.Services.Data.Goods;
+using WebWarehouse.Services.Data.Measures;
 
 namespace WebWarehouse.Web
 {
@@ -70,6 +71,7 @@ namespace WebWarehouse.Web
 
             // Custom services
             services.AddTransient<IGoodsService, GoodsService>();
+            services.AddTransient<IMeasuresService, MeasuresService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

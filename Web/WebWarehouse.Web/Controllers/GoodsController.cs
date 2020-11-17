@@ -1,30 +1,39 @@
 ﻿namespace WebWarehouse.Web.Controllers
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
     using System.Threading.Tasks;
 
     using Microsoft.AspNetCore.Mvc;
+    using Microsoft.AspNetCore.Mvc.Rendering;
     using WebWarehouse.Services.Data.Goods;
+    using WebWarehouse.Services.Data.Measures;
+    using WebWarehouse.Web.ViewModels.Common.SelectLists;
     using WebWarehouse.Web.ViewModels.Goods;
 
     public class GoodsController : BaseController
     {
         private readonly IGoodsService goodsService;
+        private readonly IMeasuresService measuresService;
 
-        public GoodsController(IGoodsService goodsService)
+        public GoodsController(IGoodsService goodsService, IMeasuresService measuresService)
         {
             this.goodsService = goodsService;
+            this.measuresService = measuresService;
         }
 
-        public IActionResult All()
+        public async Task<IActionResult> All()
         {
-            return this.View();
+            var viewModel = new GoodListViewModel()
+            {
+                Goods = await this.goodsService.GetAllAsync<GoodViewModel>(),
+            };
+            return this.View(viewModel);
         }
 
-        public IActionResult Add()
+        public async Task<IActionResult> Add()
         {
+            var measures = await this.measuresService.GetAllAsync<MeasureSelectListViewModel>();
+            this.ViewData["Measures"] = new SelectList(measures, "Id", "Name");
+
             return this.View();
         }
 
@@ -32,18 +41,6 @@
         public async Task<IActionResult> Add(GoodInputModel model)
         {
             // TODO: Authentication and Authorization
-            //var data = new GoodInputModel()
-            //{
-            //    SKU = model.SKU,
-            //    Barcode = model.Barcode,
-            //    Name = model.Name,
-            //    MeasureId = model.MeasureId,
-            //    DeliveryPrice = model.DeliveryPrice,
-            //    SalePrice = model.SalePrice,
-            //    Discount = model.Discount,
-            //    Quantity = model.Quantity,
-            //};
-
             var goodId = await this.goodsService.AddAsync(model);
             return this.Redirect("All");
         }

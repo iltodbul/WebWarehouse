@@ -1,13 +1,13 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using WebWarehouse.Web.ViewModels.Goods;
-
-namespace WebWarehouse.Services.Data.Goods
+﻿namespace WebWarehouse.Services.Data.Goods
 {
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
 
+    using Microsoft.EntityFrameworkCore;
     using WebWarehouse.Data.Common.Repositories;
     using WebWarehouse.Data.Models;
+    using WebWarehouse.Services.Mapping;
+    using WebWarehouse.Web.ViewModels.Goods;
 
     public class GoodsService : IGoodsService
     {
@@ -39,9 +39,12 @@ namespace WebWarehouse.Services.Data.Goods
             return good.Id;
         }
 
-        public IEnumerable<GoodViewModel> GetAll()
+        public async Task<IEnumerable<T>> GetAllAsync<T>()
         {
-            throw new System.NotImplementedException();
+            var goods = await this.goodsRepository.All()
+                .To<T>()
+                .ToListAsync();
+            return goods;
         }
     }
 }
