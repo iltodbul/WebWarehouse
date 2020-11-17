@@ -30,6 +30,7 @@
                               new SettingsSeeder(),
                               new CitiesSeeder(),
                               new CountriesSeeder(),
+                              new MeasureSeeder(),
                           };
 
             foreach (var seeder in seeders)

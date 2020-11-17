@@ -6,7 +6,7 @@ namespace WebWarehouse.Web.ViewModels.Goods
 {
     public class GoodInputModel
     {
-        // TODO Requirements and constraints.
+        // TODO Requirements and constraints and calculation properties.
         public string SKU { get; set; }
 
         public string Barcode { get; set; }

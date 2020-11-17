@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using WebWarehouse.Web.ViewModels.Goods;
 
 namespace WebWarehouse.Services.Data.Goods
@@ -18,22 +20,22 @@ namespace WebWarehouse.Services.Data.Goods
             this.measureRepository = measureRepository;
         }
 
-        public int Add(GoodInputModel inputModel)
+        public async Task<int> AddAsync(GoodInputModel inputModel)
         {
             var good = new Good()
             {
                 SKU = inputModel.SKU,
                 Barcode = inputModel.Barcode,
                 Name = inputModel.Name,
-                MeasureId = inputModel.MeasureId,
                 DeliveryPrice = inputModel.DeliveryPrice,
                 SalePrice = inputModel.SalePrice,
                 Discount = inputModel.Discount,
                 Quantity = inputModel.Quantity,
+                MeasureId = inputModel.MeasureId,
             };
 
-            this.goodsRepository.AddAsync(good);
-            this.goodsRepository.SaveChangesAsync();
+            await this.goodsRepository.AddAsync(good);
+            await this.goodsRepository.SaveChangesAsync();
             return good.Id;
         }
 

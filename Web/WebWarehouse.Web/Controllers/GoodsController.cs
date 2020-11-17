@@ -1,13 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using WebWarehouse.Services.Data.Goods;
-using WebWarehouse.Web.ViewModels.Goods;
-
-namespace WebWarehouse.Web.Controllers
+﻿namespace WebWarehouse.Web.Controllers
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading.Tasks;
+
+    using Microsoft.AspNetCore.Mvc;
+    using WebWarehouse.Services.Data.Goods;
+    using WebWarehouse.Web.ViewModels.Goods;
+
     public class GoodsController : BaseController
     {
         private readonly IGoodsService goodsService;
@@ -19,20 +20,32 @@ namespace WebWarehouse.Web.Controllers
 
         public IActionResult All()
         {
-
-
-            return View();
+            return this.View();
         }
 
-        public IActionResult Add(GoodInputModel model, string test)
+        public IActionResult Add()
         {
-            return this.View(model);
+            return this.View();
         }
 
         [HttpPost]
-        public IActionResult Add(GoodInputModel model)
+        public async Task<IActionResult> Add(GoodInputModel model)
         {
-            return this.View(model);
+            // TODO: Authentication and Authorization
+            //var data = new GoodInputModel()
+            //{
+            //    SKU = model.SKU,
+            //    Barcode = model.Barcode,
+            //    Name = model.Name,
+            //    MeasureId = model.MeasureId,
+            //    DeliveryPrice = model.DeliveryPrice,
+            //    SalePrice = model.SalePrice,
+            //    Discount = model.Discount,
+            //    Quantity = model.Quantity,
+            //};
+
+            var goodId = await this.goodsService.AddAsync(model);
+            return this.Redirect("All");
         }
     }
 }
