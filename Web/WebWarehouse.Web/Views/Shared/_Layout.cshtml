@@ -23,15 +23,35 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
+                        
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-dark" id="navbardrop" data-toggle="dropdown">
+                                Operations
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item text-break" asp-area="" asp-controller="Sales" asp-action="Create">Sale</a>
+                                <a class="dropdown-item text-break" asp-area="" asp-controller="Deliveries" asp-action="Create">Delivery</a>
+                                <a class="dropdown-item text-break" asp-area="" asp-controller="Transfers" asp-action="Create">Transfer</a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-dark" id="navbardrop" data-toggle="dropdown">
+                                Create
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item text-break" asp-area="" asp-controller="Goods" asp-action="Add">Goods</a>
+                                <a class="dropdown-item text-break" asp-area="" asp-controller="Measures" asp-action="Create">Measure</a>
+                                <a class="dropdown-item text-break" asp-area="" asp-controller="Partners" asp-action="Create">Partner</a>
+                                <a class="dropdown-item text-break" asp-area="" asp-controller="Warehouses" asp-action="Create">Warehouse</a>
+                            </div>
+                        </li>
+
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Settings" asp-action="Index">Settings</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                        
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Goods" asp-action="Add">Goods</a>
                         </li>
 
                     </ul>
