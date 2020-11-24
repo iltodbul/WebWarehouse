@@ -61,6 +61,13 @@
             services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));
             services.AddScoped<IDbQueryRunner, DbQueryRunner>();
 
+            // AdminLTE template services
+            services.AddAdminLTE(option =>
+            {
+                option.Aside = true;
+                option.Breadcrumbs = true;
+            });
+
             // Application services
             services.AddTransient<IEmailSender, NullMessageSender>();
             services.AddTransient<ISettingsService, SettingsService>();
