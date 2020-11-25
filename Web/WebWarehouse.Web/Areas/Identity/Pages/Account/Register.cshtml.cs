@@ -11,13 +11,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
-using WebWarehouse.Data.Common.Repositories;
 using WebWarehouse.Data.Models;
-using WebWarehouse.Services.Data.Countries;
-using WebWarehouse.Web.ViewModels.Common.SelectLists;
 
 namespace WebWarehouse.Web.Areas.Identity.Pages.Account
 {
@@ -28,20 +24,17 @@ namespace WebWarehouse.Web.Areas.Identity.Pages.Account
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
-        private readonly ICountriesService _countriesService;
 
         public RegisterModel(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender,
-            ICountriesService countriesService)
+            IEmailSender emailSender)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
-            _countriesService = countriesService;
         }
 
         [BindProperty]
@@ -88,10 +81,6 @@ namespace WebWarehouse.Web.Areas.Identity.Pages.Account
         {
             ReturnUrl = returnUrl;
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
-
-            var countries = await this._countriesService.GetAllAsync<CountrySelectListViewModel>();
-            this.ViewData["Countries"] = new SelectList(countries, "Id", "Name");
-
         }
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
