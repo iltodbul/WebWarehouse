@@ -5,6 +5,11 @@
     using System.IO;
     using System.Threading.Tasks;
 
+    using CommandLine;
+    using Microsoft.EntityFrameworkCore;
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.Extensions.Logging;
     using WebWarehouse.Data;
     using WebWarehouse.Data.Common;
     using WebWarehouse.Data.Common.Repositories;
@@ -13,13 +18,6 @@
     using WebWarehouse.Data.Seeding;
     using WebWarehouse.Services.Data;
     using WebWarehouse.Services.Messaging;
-
-    using CommandLine;
-
-    using Microsoft.EntityFrameworkCore;
-    using Microsoft.Extensions.Configuration;
-    using Microsoft.Extensions.DependencyInjection;
-    using Microsoft.Extensions.Logging;
 
     public static class Program
     {

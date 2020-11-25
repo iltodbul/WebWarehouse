@@ -1,15 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using WebWarehouse.Data.Common.Repositories;
-using WebWarehouse.Data.Models;
-using WebWarehouse.Services.Mapping;
-
-namespace WebWarehouse.Services.Data.Countries
+﻿namespace WebWarehouse.Services.Data.Countries
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading.Tasks;
+
+    using Microsoft.EntityFrameworkCore;
+    using WebWarehouse.Data.Common.Repositories;
+    using WebWarehouse.Data.Models;
+    using WebWarehouse.Services.Mapping;
+
     public class CountriesService : ICountriesService
     {
         private readonly IDeletableEntityRepository<Country> countryRepository;

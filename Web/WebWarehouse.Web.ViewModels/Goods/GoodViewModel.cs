@@ -1,6 +1,5 @@
 ﻿namespace WebWarehouse.Web.ViewModels.Goods
 {
-
     using AutoMapper;
     using WebWarehouse.Data.Models;
     using WebWarehouse.Services.Mapping;

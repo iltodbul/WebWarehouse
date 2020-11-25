@@ -1,21 +1,6 @@
-﻿using WebWarehouse.Services.Data.Countries;
-using WebWarehouse.Services.Data.Goods;
-using WebWarehouse.Services.Data.Measures;
-
-namespace WebWarehouse.Web
+﻿namespace WebWarehouse.Web
 {
     using System.Reflection;
-
-    using WebWarehouse.Data;
-    using WebWarehouse.Data.Common;
-    using WebWarehouse.Data.Common.Repositories;
-    using WebWarehouse.Data.Models;
-    using WebWarehouse.Data.Repositories;
-    using WebWarehouse.Data.Seeding;
-    using WebWarehouse.Services.Data;
-    using WebWarehouse.Services.Mapping;
-    using WebWarehouse.Services.Messaging;
-    using WebWarehouse.Web.ViewModels;
 
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
@@ -25,6 +10,19 @@ namespace WebWarehouse.Web
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
+    using WebWarehouse.Data;
+    using WebWarehouse.Data.Common;
+    using WebWarehouse.Data.Common.Repositories;
+    using WebWarehouse.Data.Models;
+    using WebWarehouse.Data.Repositories;
+    using WebWarehouse.Data.Seeding;
+    using WebWarehouse.Services.Data;
+    using WebWarehouse.Services.Data.Countries;
+    using WebWarehouse.Services.Data.Goods;
+    using WebWarehouse.Services.Data.Measures;
+    using WebWarehouse.Services.Mapping;
+    using WebWarehouse.Services.Messaging;
+    using WebWarehouse.Web.ViewModels;
 
     public class Startup
     {
@@ -57,6 +55,7 @@ namespace WebWarehouse.Web
                         options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
                     }).AddRazorRuntimeCompilation();
             services.AddRazorPages();
+            services.AddDatabaseDeveloperPageExceptionFilter();
 
             services.AddSingleton(this.configuration);
 
@@ -92,7 +91,7 @@ namespace WebWarehouse.Web
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseDatabaseErrorPage();
+                app.UseMigrationsEndPoint();
             }
             else
             {

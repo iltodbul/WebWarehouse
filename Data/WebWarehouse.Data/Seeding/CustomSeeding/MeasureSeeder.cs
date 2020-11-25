@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WebWarehouse.Data.Models;
-
-namespace WebWarehouse.Data.Seeding.CustomSeeding
+﻿namespace WebWarehouse.Data.Seeding.CustomSeeding
 {
+    using System;
+    using System.Linq;
+    using System.Threading.Tasks;
+
+    using WebWarehouse.Data.Models;
+
     public class MeasureSeeder : ISeeder
     {
         public async Task SeedAsync(ApplicationDbContext dbContext, IServiceProvider serviceProvider)

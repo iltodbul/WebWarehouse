@@ -3,12 +3,11 @@
     using System;
     using System.Threading.Tasks;
 
+    using Microsoft.AspNetCore.Mvc;
     using WebWarehouse.Data.Common.Repositories;
     using WebWarehouse.Data.Models;
     using WebWarehouse.Services.Data;
     using WebWarehouse.Web.ViewModels.Settings;
-
-    using Microsoft.AspNetCore.Mvc;
 
     public class SettingsController : BaseController
     {

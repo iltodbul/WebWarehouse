@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WebWarehouse.Services.Data.Countries
+﻿namespace WebWarehouse.Services.Data.Countries
 {
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
+
     public interface ICountriesService
     {
         Task<IEnumerable<T>> GetAllAsync<T>(int? count = null);

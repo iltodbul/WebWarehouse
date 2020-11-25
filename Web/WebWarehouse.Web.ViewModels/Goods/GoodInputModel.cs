@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace WebWarehouse.Web.ViewModels.Goods
+﻿namespace WebWarehouse.Web.ViewModels.Goods
 {
     public class GoodInputModel
     {

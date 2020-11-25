@@ -1,8 +1,9 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
-
-namespace WebWarehouse.Data.Migrations
+﻿namespace WebWarehouse.Data.Migrations
 {
+    using System;
+
+    using Microsoft.EntityFrameworkCore.Migrations;
+
     public partial class InheritingBaseDeletableModel : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)

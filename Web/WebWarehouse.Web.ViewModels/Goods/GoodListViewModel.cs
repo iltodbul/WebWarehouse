@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace WebWarehouse.Web.ViewModels.Goods
+﻿namespace WebWarehouse.Web.ViewModels.Goods
 {
+    using System.Collections.Generic;
+
     public class GoodListViewModel
     {
         public IEnumerable<GoodViewModel> Goods { get; set; }

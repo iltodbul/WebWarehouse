@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
-
-namespace WebWarehouse.Data.Migrations
+﻿namespace WebWarehouse.Data.Migrations
 {
+    using Microsoft.EntityFrameworkCore.Migrations;
+
     public partial class ChangeDbSets : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)

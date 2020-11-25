@@ -1,8 +1,8 @@
 ﻿namespace WebWarehouse.Data.Configurations
 {
-    using WebWarehouse.Data.Models;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
+    using WebWarehouse.Data.Models;
 
     public class ApplicationUserConfiguration : IEntityTypeConfiguration<ApplicationUser>
     {
