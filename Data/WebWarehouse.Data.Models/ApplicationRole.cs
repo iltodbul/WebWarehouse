@@ -3,9 +3,8 @@ namespace WebWarehouse.Data.Models
 {
     using System;
 
-    using WebWarehouse.Data.Common.Models;
-
     using Microsoft.AspNetCore.Identity;
+    using WebWarehouse.Data.Common.Models;
 
     public class ApplicationRole : IdentityRole, IAuditInfo, IDeletableEntity
     {

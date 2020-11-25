@@ -1,9 +1,8 @@
 ﻿namespace WebWarehouse.Web.Areas.Administration.Controllers
 {
+    using Microsoft.AspNetCore.Mvc;
     using WebWarehouse.Services.Data;
     using WebWarehouse.Web.ViewModels.Administration.Dashboard;
-
-    using Microsoft.AspNetCore.Mvc;
 
     public class DashboardController : AdministrationController
     {

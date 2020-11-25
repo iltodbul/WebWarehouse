@@ -2,9 +2,8 @@
 {
     using System.Linq;
 
-    using WebWarehouse.Data.Common.Models;
-
     using Microsoft.EntityFrameworkCore;
+    using WebWarehouse.Data.Common.Models;
 
     internal static class EntityIndexesConfiguration
     {

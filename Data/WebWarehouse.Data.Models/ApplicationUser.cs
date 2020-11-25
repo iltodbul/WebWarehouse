@@ -1,15 +1,13 @@
 ﻿// ReSharper disable VirtualMemberCallInConstructor
 
-using System.ComponentModel.DataAnnotations;
-
 namespace WebWarehouse.Data.Models
 {
     using System;
     using System.Collections.Generic;
-
-    using WebWarehouse.Data.Common.Models;
+    using System.ComponentModel.DataAnnotations;
 
     using Microsoft.AspNetCore.Identity;
+    using WebWarehouse.Data.Common.Models;
 
     public class ApplicationUser : IdentityUser, IAuditInfo, IDeletableEntity
     {

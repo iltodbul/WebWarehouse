@@ -3,9 +3,8 @@
     using System;
     using System.Threading.Tasks;
 
-    using WebWarehouse.Data.Common;
-
     using Microsoft.EntityFrameworkCore;
+    using WebWarehouse.Data.Common;
 
     public class DbQueryRunner : IDbQueryRunner
     {

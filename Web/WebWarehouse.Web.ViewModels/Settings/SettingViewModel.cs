@@ -1,9 +1,8 @@
 ﻿namespace WebWarehouse.Web.ViewModels.Settings
 {
+    using AutoMapper;
     using WebWarehouse.Data.Models;
     using WebWarehouse.Services.Mapping;
-
-    using AutoMapper;
 
     public class SettingViewModel : IMapFrom<Setting>, IHaveCustomMappings
     {

@@ -16,15 +16,17 @@
 
         [ForeignKey(nameof(OutWarehouse))]
         public string OutWarehouseId { get; set; }
+
         public Warehouse OutWarehouse { get; set; }
 
         [ForeignKey(nameof(InWarehouse))]
         public string InWarehouseId { get; set; }
+
         public Warehouse InWarehouse { get; set; }
 
         public string UserId { get; set; }
 
-        public  ApplicationUser User { get; set; }
+        public ApplicationUser User { get; set; }
 
         public virtual ICollection<Good> TransferGoods { get; set; } = new HashSet<Good>();
     }
