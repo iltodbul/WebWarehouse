@@ -10,16 +10,13 @@
     {
         private readonly IDeletableEntityRepository<Country> countryRepository;
         private readonly IDeletableEntityRepository<City> cityRepository;
-        private readonly IDeletableEntityRepository<Setting> settingRepository;
 
         public GetCountsService(
             IDeletableEntityRepository<Country> countryRepository,
-            IDeletableEntityRepository<City> cityRepository,
-            IDeletableEntityRepository<Setting> settingRepository)
+            IDeletableEntityRepository<City> cityRepository)
         {
             this.countryRepository = countryRepository;
             this.cityRepository = cityRepository;
-            this.settingRepository = settingRepository;
         }
 
         public IndexViewModel GetCounts()
@@ -28,7 +25,6 @@
             {
                 CountriesCount = this.countryRepository.All().Count(),
                 CitiesCount = this.cityRepository.All().Count(),
-                SettingsCount = this.settingRepository.All().Count(),
             };
 
             return data;

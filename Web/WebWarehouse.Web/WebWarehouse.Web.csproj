@@ -43,4 +43,10 @@
     <ProjectReference Include="..\WebWarehouse.Web.Infrastructure\WebWarehouse.Web.Infrastructure.csproj" />
     <ProjectReference Include="..\WebWarehouse.Web.ViewModels\WebWarehouse.Web.ViewModels.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\Administration\Views\Dashboard\" />
+  </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties properties_4launchsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
 </Project>

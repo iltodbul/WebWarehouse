@@ -23,8 +23,6 @@
         {
         }
 
-        public DbSet<Setting> Settings { get; set; }
-
         public DbSet<City> Cities { get; set; }
 
         public DbSet<Company> Companies { get; set; }

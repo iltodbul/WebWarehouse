@@ -66,7 +66,6 @@
 
             // Application services
             services.AddTransient<IEmailSender, NullMessageSender>();
-            services.AddTransient<ISettingsService, SettingsService>();
             services.AddTransient<IGetCountsService, GetCountsService>();
 
             // Custom services
