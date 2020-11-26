@@ -7,8 +7,6 @@
 <h1>@this.ViewData["Title"]</h1>
 <h3>Some text here how or why to create new goods, maybe?</h3>
 
-
-
 <div class="col-lg-6">
     @*<h2>New Good</h2>*@
     <form method="post" enctype="multipart/form-data" class="pt-4">
@@ -43,9 +41,9 @@
                 <select asp-for="@Model.MeasureId" class="form-control" asp-items="@measures">
                 </select>
                 <span asp-validation-for="MeasureId" class="text-danger"></span>
-                
+
                 <span>
-                    <a class="btn btn-info" asp-controller="Measures" asp-action="Create">Add New Measure</a>
+                    <a class="btn btn-info" data-toggle="tooltip" data-placement="left" title="Tooltip on top" asp-controller="Measures" asp-action="Create">Add New Measure</a>
                 </span>
             </div>
         </div>
@@ -94,4 +92,3 @@
         </div>
     </form>
 </div>
-
