@@ -1,4 +1,6 @@
-﻿namespace WebWarehouse.Web.Areas.Identity.Pages.Account
+﻿using WebWarehouse.Services.Data.Cities;
+
+namespace WebWarehouse.Web.Areas.Identity.Pages.Account
 {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -28,19 +30,22 @@
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
         private readonly ICountriesService _countriesService;
+        private readonly ICitiesService _citiesService;
 
         public RegisterModel(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
             ILogger<RegisterModel> logger,
             IEmailSender emailSender,
-            ICountriesService countriesService)
+            ICountriesService countriesService,
+            ICitiesService citiesService)
         {
             this._userManager = userManager;
             this._signInManager = signInManager;
             this._logger = logger;
             this._emailSender = emailSender;
             this._countriesService = countriesService;
+            this._citiesService = citiesService;
         }
 
         [BindProperty]
@@ -91,6 +96,8 @@
             var countries = await this._countriesService.GetAllAsync<CountrySelectListViewModel>();
             this.ViewData["Countries"] = new SelectList(countries, "Id", "Name");
 
+            var cities = await this._citiesService.GetAllAsync<CitySelectListViewModel>();
+            this.ViewData["Cities"] = new SelectList(cities, "Id", "Name");
         }
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)

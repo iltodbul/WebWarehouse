@@ -1,10 +1,14 @@
 ﻿namespace WebWarehouse.Data.Seeding.CustomSeeding
 {
     using System;
+    using System.Collections.Generic;
+    using System.IO;
     using System.Linq;
     using System.Threading.Tasks;
 
+    using Newtonsoft.Json;
     using WebWarehouse.Data.Models;
+    using WebWarehouse.Data.Seeding.DTO;
 
     public class CitiesSeeder : ISeeder
     {
@@ -15,24 +19,16 @@
                 return;
             }
 
-            var cities = new City[]
-            {
-                new City
-                {
-                    Name = "Sofia",
-                },
-                new City
-                {
-                    Name = "Varna",
-                },
-                new City
-                {
-                    Name = "Burgas",
-                },
-            };
+            var inputJson = await File.ReadAllTextAsync(@"wwwroot\Json\bgCities.json");
 
-            foreach (var city in cities)
+            var citiesDto = JsonConvert.DeserializeObject<cityDto[]>(inputJson);
+            var cities = new List<City>();
+            foreach (var cityDto in citiesDto)
             {
+                var city = new City()
+                {
+                    Name = cityDto.Name,
+                };
                 await dbContext.AddAsync(city);
                 await dbContext.SaveChangesAsync();
             }
