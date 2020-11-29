@@ -19,9 +19,9 @@
                 return;
             }
 
-            var inputJson = await File.ReadAllTextAsync(@"wwwroot\Json\bgCities.json");
+            var inputJson = await File.ReadAllTextAsync(@"..\..\Data\WebWarehouse.Data\Seeding\Json\bgCities.json");
 
-            var citiesDto = JsonConvert.DeserializeObject<cityDto[]>(inputJson);
+            var citiesDto = JsonConvert.DeserializeObject<CityDto[]>(inputJson);
             var cities = new List<City>();
             foreach (var cityDto in citiesDto)
             {

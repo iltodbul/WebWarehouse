@@ -30,6 +30,10 @@
                               new CitiesSeeder(),
                               new CountriesSeeder(),
                               new MeasureSeeder(),
+                              new PartnersSeeder(),
+                              new CompanySeeder(),
+                              new WarehousesSeeder(),
+                              new GoodsSeeder(),
                           };
 
             foreach (var seeder in seeders)

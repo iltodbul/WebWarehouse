@@ -48,11 +48,5 @@
     <Folder Include="Areas\Administration\Views\Dashboard\" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Content Update="wwwroot\Json\bgCities.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-
   <ProjectExtensions><VisualStudio><UserProperties properties_4launchsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
 </Project>
