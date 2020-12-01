@@ -22,14 +22,18 @@
 
         public decimal SalePrice { get; set; }
 
-        public double Discount { get; set; }
-
         public string MeasureName { get; set; }
+
+        public string WarehouseName { get; set; }
 
         public void CreateMappings(IProfileExpression configuration)
         {
             configuration.CreateMap<Measure, GoodViewModel>().ForMember(
                 m => m.MeasureName,
+                opt => opt.MapFrom(x => x.Name));
+
+            configuration.CreateMap<Warehouse, GoodViewModel>().ForMember(
+                m => m.WarehouseName,
                 opt => opt.MapFrom(x => x.Name));
         }
     }

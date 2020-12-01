@@ -29,7 +29,6 @@
                     Quantity = 2 * i,
                     DeliveryPrice = i,
                     SalePrice = i * 0.5M,
-                    Discount = 0,
                 };
                 goodsCollection.Add(goods);
             }

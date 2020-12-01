@@ -29,7 +29,6 @@
                 Name = inputModel.Name,
                 DeliveryPrice = inputModel.DeliveryPrice,
                 SalePrice = inputModel.SalePrice,
-                Discount = inputModel.Discount,
                 Quantity = inputModel.Quantity,
                 MeasureId = inputModel.MeasureId,
             };

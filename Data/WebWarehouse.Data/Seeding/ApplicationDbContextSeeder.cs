@@ -32,8 +32,8 @@
                               new MeasureSeeder(),
                               new PartnersSeeder(),
                               new CompanySeeder(),
-                              new WarehousesSeeder(),
                               new GoodsSeeder(),
+                              new WarehousesSeeder(),
                           };
 
             foreach (var seeder in seeders)

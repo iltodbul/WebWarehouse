@@ -22,6 +22,8 @@
 
         public decimal SalePrice { get; set; }
 
-        public double Discount { get; set; }
+        public string WarehouseId { get; set; }
+
+        public Warehouse Warehouse { get; set; }
     }
 }

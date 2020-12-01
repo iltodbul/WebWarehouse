@@ -6,7 +6,5 @@
         public int CountriesCount { get; set; }
 
         public int CitiesCount { get; set; }
-
-        public int SettingsCount { get; set; }
     }
 }

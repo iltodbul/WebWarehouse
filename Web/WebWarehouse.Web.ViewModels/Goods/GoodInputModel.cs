@@ -11,12 +11,10 @@
 
         public int MeasureId { get; set; }
 
-        public double Quantity { get; set; }
-
         public decimal DeliveryPrice { get; set; }
 
         public decimal SalePrice { get; set; }
 
-        public double Discount { get; set; }
+        public double Quantity { get; set; }
     }
 }

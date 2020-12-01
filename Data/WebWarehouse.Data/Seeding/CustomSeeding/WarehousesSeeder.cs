@@ -1,11 +1,10 @@
 ﻿namespace WebWarehouse.Data.Seeding.CustomSeeding
 {
     using System;
-    using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
     using System.Threading.Tasks;
 
+    using Microsoft.EntityFrameworkCore;
     using WebWarehouse.Data.Models;
 
     public class WarehousesSeeder : ISeeder
@@ -17,9 +16,10 @@
                 return;
             }
 
-            var city = dbContext.Cities.First();
+            var city = await dbContext.Cities.FirstAsync();
             var country = dbContext.Countries.First();
             var company = dbContext.Companies.First();
+            var goodsCollection = await dbContext.Goods.ToListAsync();
 
             var warehouses = new Warehouse[]
             {
@@ -30,6 +30,7 @@
                     CountryId = country.Id,
                     CityId = city.Id,
                     CompanyId = company.Id,
+                    Goods = goodsCollection,
                 },
                 new Warehouse
                 {
