@@ -1,4 +1,5 @@
 ﻿using WebWarehouse.Services.Data.Cities;
+using WebWarehouse.Services.Data.Transfers;
 
 namespace WebWarehouse.Web
 {
@@ -75,6 +76,7 @@ namespace WebWarehouse.Web
             services.AddTransient<IMeasuresService, MeasuresService>();
             services.AddTransient<ICountriesService, CountriesService>();
             services.AddTransient<ICitiesService, CitiesService>();
+            services.AddTransient<ITransfersService, TransfersService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

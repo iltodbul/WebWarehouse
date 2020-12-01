@@ -1,7 +1,82 @@
-﻿
+﻿@model WebWarehouse.Web.ViewModels.Transfers.TransferInputModel
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Create a New Transfer";
+    var warehouses = this.ViewData["Measures"] as SelectList; // TODO
 }
 
-<h1>Create New Transfer</h1>
+<h1>@this.ViewData["Title"]</h1>
+<h3>Some text here how or why to create new transfer, maybe?</h3>
 
+<div class="col-lg-6">
+    <form method="post" enctype="multipart/form-data" class="pt-4">
+
+        @*<div class="form-group row">
+            <label class="col-sm-2 col-form-label">SKU</label>
+            <div class="col-sm-10">
+                <input type="text" asp-for="@Model.SKU" class="form-control" required="required">
+                <span asp-validation-for="SKU" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Barcode</label>
+            <div class="col-sm-10">
+                <input type="text" asp-for="@Model.Barcode" class="form-control">
+                <span asp-validation-for="Barcode" class="text-danger"></span>
+            </div>
+        </div>*@
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Out WarehouseId</label>
+            <div class="col-sm-10">
+                <select asp-for="@Model.OutWarehouseId" class="form-control" asp-items="@warehouses">
+                </select>
+                <span asp-validation-for="OutWarehouseId" class="text-danger"></span>
+
+                @*<span>
+                    <a class="btn btn-info" data-toggle="tooltip" data-placement="left" title="Tooltip on top" asp-controller="Measures" asp-action="Create">Add New Measure</a>
+                </span>*@
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">In WarehouseId</label>
+            <div class="col-sm-10">
+                <select asp-for="@Model.InWarehouseId" class="form-control" asp-items="@warehouses">
+                </select>
+                <span asp-validation-for="InWarehouseId" class="text-danger"></span>
+
+                @*<span>
+                    <a class="btn btn-info" data-toggle="tooltip" data-placement="left" title="Tooltip on top" asp-controller="Measures" asp-action="Create">Add New Measure</a>
+                </span>*@
+            </div>
+        </div>
+
+        @*<div class="form-group row">
+            <label class="col-sm-2 col-form-label">Delivery Price</label>
+            <div class="col-sm-10">
+                <input type="number" asp-for="@Model.DeliveryPrice" class="form-control" required="required">
+                <span asp-validation-for="DeliveryPrice" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Sale Price</label>
+            <div class="col-sm-10">
+                <input type="number" asp-for="@Model.SalePrice" class="form-control" required="required">
+                <span asp-validation-for="SalePrice" class="text-danger"></span>
+            </div>
+        </div>*@
+
+        <div class="form-group row">
+            <div class="col-sm-6 text-right">
+                <button type="submit" class="btn btn-success" asp-controller="Transfers" asp-action="Create">
+                    Create transfer
+                </button>
+            </div>
+            <div class="col-sm-6">
+                <a class="btn btn-danger" asp-controller="Transfers" asp-action="All">Cancel</a>
+            </div>
+        </div>
+    </form>
+</div>

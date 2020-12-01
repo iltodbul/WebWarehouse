@@ -1,0 +1,38 @@
+﻿@using WebWarehouse.Common
+@model WebWarehouse.Web.ViewModels.Transfers.TransferListViewModel
+@{
+    ViewData["Title"] = "All Transfers";
+}
+
+<h2>
+    All Transfers: (@Model.Transfers.Count())
+    <span>
+        <a class="btn btn-info" asp-controller="Transfers" asp-action="Create">Create New Transfer</a>
+    </span>
+</h2>
+
+<table class="table table-bordered table-striped">
+    <thead class="thead-light">
+        <tr>
+            <th scope="col">Number</th>
+            <th scope="col">Date</th>
+            <th scope="col">Operator</th>
+            <th scope="col">Out Warehouse</th>
+            <th scope="col">In Warehouse</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var transfer in this.Model.Transfers)
+        {
+            <tr>
+                <th scope="row">@transfer.Number</th>
+                <td>@transfer.Date</td>
+                <td>@transfer.UserName</td>
+                <td>@transfer.OutWarehouse</td>
+                <td>@transfer.InWarehouse</td>
+                
+            </tr>
+        }
+    </tbody>
+</table>

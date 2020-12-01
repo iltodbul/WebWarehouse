@@ -2,8 +2,10 @@
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
+using Microsoft.EntityFrameworkCore;
 using WebWarehouse.Data.Common.Repositories;
 using WebWarehouse.Data.Models;
+using WebWarehouse.Services.Mapping;
 
 namespace WebWarehouse.Services.Data.Transfers
 {
@@ -16,16 +18,19 @@ namespace WebWarehouse.Services.Data.Transfers
     {
         private readonly IDeletableEntityRepository<Warehouse> warehouseRepository;
         private readonly IDeletableEntityRepository<Good> goodsRepository;
+        private readonly IDeletableEntityRepository<Transfer> transfersRepository;
 
         public TransfersService(
             IDeletableEntityRepository<Warehouse> warehouseRepository,
-            IDeletableEntityRepository<Good> goodsRepository)
+            IDeletableEntityRepository<Good> goodsRepository,
+            IDeletableEntityRepository<Transfer> transfersRepository)
         {
             this.warehouseRepository = warehouseRepository;
             this.goodsRepository = goodsRepository;
+            this.transfersRepository = transfersRepository;
         }
 
-        public async Task MakeTransfer(TransferInputModel inputModel)
+        public async Task MakeTransfer(TransferInputModel inputModel, string userId)
         {
             var outWarehouseId = inputModel.OutWarehouseId;
             var inWarehouseId = inputModel.InWarehouseId;
@@ -56,14 +61,27 @@ namespace WebWarehouse.Services.Data.Transfers
                 };
                 await this.goodsRepository.AddAsync(inGoods);
                 await this.goodsRepository.SaveChangesAsync();
-
             }
 
-            /*  1. във входящия склад да се добави стоката с определеното количество
-                2. в изходящия склад да се коригира количеството на стоката
-                3. да се създаде трансфер с необходимите пропъртита. 
-            */
-            throw new NotImplementedException();
+            var transfer = new Transfer
+            {
+                Date = inputModel.Date,
+                InWarehouseId = inWarehouseId,
+                OutWarehouseId = outWarehouseId,
+                Number = 0,
+                TransferGoods = transferGoods,
+                UserId = userId,
+            };
+            await this.transfersRepository.AddAsync(transfer);
+            await this.transfersRepository.SaveChangesAsync();
+        }
+
+        public async Task<IEnumerable<T>> GetAllAsync<T>()
+        {
+            var transfers = await this.transfersRepository.All()
+                .To<T>()
+                .ToListAsync();
+            return transfers;
         }
     }
 }

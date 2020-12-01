@@ -1,4 +1,7 @@
-﻿namespace WebWarehouse.Web.Controllers
+﻿using Microsoft.AspNetCore.Identity;
+using WebWarehouse.Data.Models;
+
+namespace WebWarehouse.Web.Controllers
 {
     using System.Threading.Tasks;
 
@@ -13,11 +16,16 @@
     {
         private readonly IGoodsService goodsService;
         private readonly IMeasuresService measuresService;
+        private readonly UserManager<ApplicationUser> userManager;
 
-        public GoodsController(IGoodsService goodsService, IMeasuresService measuresService)
+        public GoodsController(
+            IGoodsService goodsService,
+            IMeasuresService measuresService,
+            UserManager<ApplicationUser> userManager)
         {
             this.goodsService = goodsService;
             this.measuresService = measuresService;
+            this.userManager = userManager;
         }
 
         public async Task<IActionResult> All()

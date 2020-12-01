@@ -7,16 +7,14 @@
 
     public class TransferInputModel
     {
-        public int Number { get; set; }
+        public int Number { get; set; } //???
 
-        public DateTime Date { get; set; }
+        public DateTime Date = DateTime.UtcNow; // TODO Data picker if I have time.
 
         public string OutWarehouseId { get; set; }
 
         public string InWarehouseId { get; set; }
 
-        public string UserId { get; set; }
-
-        public ICollection<int> TransferGoods { get; set; } = new HashSet<int>();
+        public ICollection<int> TransferGoods { get; set; } = new HashSet<int>(); // TODO How to add goods in this collection?
     }
 }
