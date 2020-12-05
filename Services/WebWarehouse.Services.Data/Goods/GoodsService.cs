@@ -1,4 +1,6 @@
-﻿namespace WebWarehouse.Services.Data.Goods
+﻿using System.Linq;
+
+namespace WebWarehouse.Services.Data.Goods
 {
     using System.Collections.Generic;
     using System.Threading.Tasks;
@@ -13,15 +15,24 @@
     {
         private readonly IDeletableEntityRepository<Good> goodsRepository;
         private readonly IDeletableEntityRepository<Measure> measureRepository;
+        private readonly IDeletableEntityRepository<Warehouse> warehousesRepository;
 
-        public GoodsService(IDeletableEntityRepository<Good> goodsRepository, IDeletableEntityRepository<Measure> measureRepository)
+        public GoodsService(
+            IDeletableEntityRepository<Good> goodsRepository,
+            IDeletableEntityRepository<Measure> measureRepository,
+            IDeletableEntityRepository<Warehouse> warehousesRepository)
         {
             this.goodsRepository = goodsRepository;
             this.measureRepository = measureRepository;
+            this.warehousesRepository = warehousesRepository;
         }
 
         public async Task<int> AddAsync(GoodInputModel inputModel)
         {
+            var warehouse = await this.warehousesRepository
+                .All()
+                .FirstOrDefaultAsync(x => x.Name == "Warehouse 1");
+
             var good = new Good()
             {
                 SKU = inputModel.SKU,
@@ -31,6 +42,7 @@
                 SalePrice = inputModel.SalePrice,
                 Quantity = inputModel.Quantity,
                 MeasureId = inputModel.MeasureId,
+                WarehouseId = warehouse.Id,
             };
 
             await this.goodsRepository.AddAsync(good);
