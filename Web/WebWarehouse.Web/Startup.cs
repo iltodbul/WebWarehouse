@@ -1,7 +1,4 @@
-﻿using WebWarehouse.Services.Data.Cities;
-using WebWarehouse.Services.Data.Transfers;
-
-namespace WebWarehouse.Web
+﻿namespace WebWarehouse.Web
 {
     using System.Reflection;
 
@@ -20,9 +17,11 @@ namespace WebWarehouse.Web
     using WebWarehouse.Data.Repositories;
     using WebWarehouse.Data.Seeding;
     using WebWarehouse.Services.Data;
+    using WebWarehouse.Services.Data.Cities;
     using WebWarehouse.Services.Data.Countries;
     using WebWarehouse.Services.Data.Goods;
     using WebWarehouse.Services.Data.Measures;
+    using WebWarehouse.Services.Data.Transfers;
     using WebWarehouse.Services.Mapping;
     using WebWarehouse.Services.Messaging;
     using WebWarehouse.Web.ViewModels;
