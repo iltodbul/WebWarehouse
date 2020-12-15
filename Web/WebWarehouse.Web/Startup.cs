@@ -1,4 +1,6 @@
-﻿namespace WebWarehouse.Web
+﻿using WebWarehouse.Services.Data.Warehouses;
+
+namespace WebWarehouse.Web
 {
     using System.Reflection;
 
@@ -76,6 +78,7 @@
             services.AddTransient<ICountriesService, CountriesService>();
             services.AddTransient<ICitiesService, CitiesService>();
             services.AddTransient<ITransfersService, TransfersService>();
+            services.AddTransient<IWarehousesService, WarehousesService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

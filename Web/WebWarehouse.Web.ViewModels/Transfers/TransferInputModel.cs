@@ -15,6 +15,6 @@
 
         public string InWarehouseId { get; set; }
 
-        public ICollection<TransferGoodsInputModel> TransferGoods { get; set; } = new HashSet<TransferGoodsInputModel>(); // TODO How to add goods in this collection?
+        public IEnumerable<TransferGoodsInputModel> TransferGoods { get; set; } = new HashSet<TransferGoodsInputModel>(); // TODO How to add goods in this collection?
     }
 }

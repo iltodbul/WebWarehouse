@@ -1,8 +1,7 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-
-namespace WebWarehouse.Web.ViewModels.Goods
+﻿namespace WebWarehouse.Web.ViewModels.Goods
 {
+    using System.ComponentModel.DataAnnotations;
+
     public class GoodInputModel
     {
         // TODO calculation properties??
