@@ -18,10 +18,6 @@
                 <select asp-for="@Model.OutWarehouseId" class="form-control" asp-items="@warehouses">
                 </select>
                 <span asp-validation-for="OutWarehouseId" class="text-danger"></span>
-
-                @*<span>
-                        <a class="btn btn-info" data-toggle="tooltip" data-placement="left" title="Tooltip on top" asp-controller="Measures" asp-action="Create">Add New Measure</a>
-                    </span>*@
             </div>
         </div>
 
@@ -34,54 +30,34 @@
             </div>
         </div>
 
-        @*<div class="form-group row" id="GoodsContainer">
-                <label class="col-sm-2 col-form-label">Goods</label>
-                <a class="btn btn-success" onclick="AddMoreGoods()">Add Goods</a>
-            </div>*@
-
         <label class="col-sm-2 col-form-label">Goods:</label>
         <div class="form-group row">
-            @*<div class="col-sm-6 text-right">
-                    <select asp-for="@Model.TransferGoods" class="form-control" asp-items="@goodsList">
-                    </select>
-                </div>*@
-
-            <!--<div class="col-sm-6 text-right">
-                <input type="text" name="TransferGoods[0].Name" class="form-control" required="required">
-            </div>
-
-            <div class="col-sm-6">
-            <input type="number" name="TransferGoods[0].Quantity" class="form-control" required="required">-->
-            @*<span asp-validation-for="Quantity" class="text-danger"></span>*@
-            <!--</div>-->
-
-
-            @*<div class="col-sm-6 text-right">
-                <input type="text" name="TransferGoods[0].Name" class="form-control" required="required">
-            </div>*@
-            <div class="col-sm-6 text-right">
+            
+            <div class="form-group row">
+                <div class="col-sm-6 text-right">
                     <select asp-for="@Model.TransferGoods" class="form-control" asp-items="@goodsList">
                     </select>
                 </div>
 
-            <div class="col-sm-6">
-                <input type="number" name="TransferGoods[0].Quantity" class="form-control" required="required">
-            </div>
-            <div class="col-sm-6 text-right">
-                <input type="text" name="TransferGoods[1].Name" class="form-control" required="required">
+                <div class="col-sm-6">
+                    <input type="number" name="TransferGoods[0].Quantity" class="form-control" required="required">
+                </div>
+
             </div>
 
-            <div class="col-sm-6">
-                <input type="number" name="TransferGoods[1].Quantity" class="form-control" required="required">
-            </div>
-            <div class="col-sm-6 text-right">
-                <input type="text" name="TransferGoods[2].Name" class="form-control">
-            </div>
+        </div>
 
-            <div class="col-sm-6">
-                <input type="number" name="TransferGoods[2].Quantity" class="form-control">
-            </div>
+        <div class="form-group row">
+            <div class="form-group row">
+                <div class="col-sm-6 text-right">
+                    <select asp-for="@Model.TransferGoods" class="form-control" asp-items="@goodsList">
+                    </select>
+                </div>
+                <div class="col-sm-6">
+                    <input type="number" name="TransferGoods[1].Quantity" class="form-control" required="required">
+                </div>
 
+            </div>
         </div>
 
 
