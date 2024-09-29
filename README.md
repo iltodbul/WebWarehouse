@@ -1,9 +1,6 @@
 # WebWarehouse
 
 :dart:  My project for the ASP.NET Core course at SoftUni.
-# Under Construction
-
-![Under constructio](https://raw.githubusercontent.com/iltodbul/WebWarehouse/main/under-construction.png)
 
 ## :hammer_and_pick: Built With
 
